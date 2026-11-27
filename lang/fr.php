@@ -16,6 +16,7 @@ return [
     'nav.orders' => 'Commandes',
     'nav.kitchen' => 'Liste cuisine',
     'nav.products' => 'Assortiment',
+    'nav.newsletter' => 'Newsletter',
     'nav.settings' => 'Paramètres',
     'nav.backup_now' => 'Backup vers Excel',
     'nav.logout' => 'Déconnexion',

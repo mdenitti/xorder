@@ -33,8 +33,10 @@ final class PasswordResetService
      * Creates a token and sends the mail when the account exists.
      * Returns the reset link only when debug mode is on (local testing), otherwise null.
      * Callers must always show the same neutral message to avoid account enumeration.
+     *
+     * @param callable(string): string $linkForToken builds the full reset link for a token
      */
-    public function request(string $email, string $baseUrlForLink): ?string
+    public function request(string $email, callable $linkForToken): ?string
     {
         $user = $this->users->findByEmail($email);
         if ($user === null) {
@@ -53,7 +55,7 @@ final class PasswordResetService
             ]
         );
 
-        $link = rtrim($baseUrlForLink, '/') . '/' . $token;
+        $link = $linkForToken($token);
         $this->sendMail($user->email, $link);
 
         return $this->config->isDebug() ? $link : null;

@@ -79,7 +79,7 @@ declare(strict_types=1);
             <?php else: ?>
                 <div style="display:grid;gap:10px;">
                     <?php foreach ($stats['upcoming_dates'] as $day): ?>
-                        <a href="<?= $e($url('/app/orders')) ?>?pickup_date=<?= $e($day['pickup_date']) ?>" style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:var(--cream-50);text-decoration:none;">
+                        <a href="<?= $e($url('/app/orders?pickup_date=' . rawurlencode((string) $day['pickup_date']))) ?>" style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:var(--cream-50);text-decoration:none;">
                             <span><strong><?= $e($day['pickup_date']) ?></strong> · <?= $e($t('dash.upcoming_orders', ['count' => $day['order_count']])) ?></span>
                             <strong>€ <?= $e(number_format($day['total_amount'], 2, ',', '.')) ?></strong>
                         </a>

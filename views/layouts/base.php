@@ -71,7 +71,7 @@ declare(strict_types=1);
         <div class="header-actions">
             <div class="lang-switch" aria-label="Language">
                 <?php foreach ($supportedLocales as $loc): ?>
-                    <a href="<?= $e($url($currentPath)) ?>?lang=<?= $e($loc) ?>" class="<?= $locale === $loc ? 'is-active' : '' ?>"><?= $e(strtoupper($loc)) ?></a>
+                    <a href="<?= $e($url($currentPath . '?lang=' . rawurlencode($loc))) ?>" class="<?= $locale === $loc ? 'is-active' : '' ?>"><?= $e(strtoupper($loc)) ?></a>
                 <?php endforeach; ?>
             </div>
 

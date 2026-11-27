@@ -26,5 +26,5 @@ Geen inline script nodig, dus het werkt met de strikte Content-Security-Policy v
 - Taal volgt `<html lang>` (nl of fr). Forceren kan met `data-lang="fr"`.
 - Wegklikken (x) verbergt de knop 14 dagen (`data-dismiss-days`).
 - Testen buiten het seizoen of na wegklikken: zet `?xorder-knop=toon` achter de url.
-- Anonieme tellers (getoond, uitgeklapt, aangeklikt, weggeklikt) gaan naar `/xorder/track`.
+- Anonieme tellers (getoond, uitgeklapt, aangeklikt, weggeklikt) gaan naar `/xorder/track.php`.
   Uitzetten met `data-track="false"`. Bekijken met `php bin/widget-stats.php` op de server.

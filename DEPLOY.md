@@ -31,8 +31,8 @@ Gaat nooit mee: `features/`, `public/features/`, `.git`, `mcp-crashcourse/`.
 - [ ] Registreren met testaccount, voorbeelddata verschijnt, dashboard laadt
 - [ ] Bestelling aanmaken, keukenlijst klopt, printknop werkt
 - [ ] Excel-backup downloaden en openen (4 tabbladen)
-- [ ] Wachtwoord vergeten: mail komt aan, link begint met `https://assurio.be/xorder/reset/`
-- [ ] `/xorder/features` geeft 404 (features staan uit op productie)
+- [ ] Wachtwoord vergeten: mail komt aan, link begint met `https://assurio.be/xorder/reset.php?token=`
+- [ ] `/xorder/features.php` geeft 404 (features staan uit op productie)
 - [ ] `/xorder/widget/assurio-xorder-widget.js` is bereikbaar
 - [ ] Browserconsole: geen CSP-fouten
 - [ ] Testaccount verwijderen

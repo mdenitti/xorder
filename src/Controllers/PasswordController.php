@@ -52,7 +52,10 @@ final class PasswordController extends BaseController
         $this->throttle->hit('forgot', $throttleKey);
 
         if ($email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $debugLink = $this->resets->request($email, $request->absoluteUrl('/reset'));
+            $debugLink = $this->resets->request(
+                $email,
+                static fn (string $token): string => $request->absoluteUrl('/reset/' . $token)
+            );
             if ($debugLink !== null) {
                 $this->app->session->flash('info', $this->app->i18n->t('auth.forgot_debug', ['link' => $debugLink]));
             }

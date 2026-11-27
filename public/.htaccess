@@ -1,18 +1,12 @@
+# Geen rewrites meer: elke pagina is een gewoon .php-bestand in deze map (login.php, orders.php, ...).
+# Dit bestand doet enkel nog beveiliging en caching.
 Options -Indexes
+DirectoryIndex index.php
 
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    # Interne bestanden nooit serveren
-    RewriteRule ^xorder-path\.php$ - [F,L]
-
-    # Bestaande statische bestanden (css, js, widget, features) rechtstreeks serveren
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-
-    # Al de rest naar de front controller
-    RewriteRule ^ index.php [L,QSA]
-</IfModule>
+# Interne bestanden nooit serveren
+<FilesMatch "^(xorder-path|_bootstrap)\.php$">
+    Require all denied
+</FilesMatch>
 
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"

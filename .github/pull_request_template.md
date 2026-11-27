@@ -4,7 +4,7 @@
 **Wat doet de feature?** (1 of 2 zinnen)
 
 **Hoe test ik ze?**
-1. Ga naar `/features/<voornaam>`
+1. Ga naar `/feature.php?naam=<voornaam>`
 2. 
 
 ## Afspraken nagekeken

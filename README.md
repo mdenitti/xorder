@@ -11,8 +11,15 @@ php -S 127.0.0.1:8787 -t public
 ```
 
 - Landingspagina + registratie (NL/FR): `http://127.0.0.1:8787/`
-- App dashboard (na registratie/login): `http://127.0.0.1:8787/app`
-- Features van de klas: `http://127.0.0.1:8787/features`
+- App dashboard (na registratie/login): `http://127.0.0.1:8787/dashboard.php`
+- Features van de klas: `http://127.0.0.1:8787/features.php`
+
+### Pagina's zonder rewrites
+
+Er is geen `.htaccess`-routing: elke pagina is een gewoon `.php`-bestand in `public/` (`login.php`, `orders.php`, `order-edit.php?id=5`, ...).
+Zo'n bestand laadt `public/_bootstrap.php` en roept één controller-methode aan via `xorder_page(get: ..., post: ...)`.
+In de code schrijf je links nog altijd als logisch pad, bv. `$url('/app/orders/5/edit')`. De vertaling naar het bestand staat op één plek: `src/Core/Routes.php`.
+Nieuwe pagina? Maak het bestand in `public/` en voeg één regel toe aan `Routes`.
 
 Zonder `config/config.php` gebruikt de app `config/config.example.php` (SQLite in `storage/xorder.sqlite`, debug aan). Tabellen worden automatisch aangemaakt bij het eerste verzoek.
 
@@ -35,7 +42,7 @@ Wachtwoord voor alle drie: `xorder123`. Let op: het script wist eerst alle besta
 ## 2. Features van cursisten
 
 Elke cursist maakt `features/<voornaam>.php` met eigen assets in `public/features/<voornaam>/`.
-De pagina verschijnt vanzelf op `/features/<voornaam>` en in het menu. Lees [CONTRIBUTING.md](CONTRIBUTING.md).
+De pagina verschijnt vanzelf op `/feature.php?naam=<voornaam>` en in het menu. Lees [CONTRIBUTING.md](CONTRIBUTING.md).
 Op productie staan features uit (`features.enabled = false`) en worden ze niet mee gedeployed.
 
 ## 3. Productie
@@ -48,7 +55,7 @@ Zie [widget/README.md](widget/README.md). De bestanden staan in `public/widget/`
 
 ## 5. Extra's
 
-- **Wachtwoord vergeten:** `/forgot` en `/reset/<token>` (token 1 uur geldig, eenmalig, enkel gehasht opgeslagen). Links in mails komen uit `app.url`, nooit uit de Host-header.
+- **Wachtwoord vergeten:** `/forgot.php` en `/reset.php?token=<token>` (token 1 uur geldig, eenmalig, enkel gehasht opgeslagen). Links in mails komen uit `app.url`, nooit uit de Host-header.
 - **Brute-force bescherming:** max 8 loginpogingen per e-mail en IP per 15 minuten, max 5 resetaanvragen per IP per uur.
 - **Juridische pagina's:** `/privacy` en `/cookies` (NL/FR).
 - **Statistieken seizoensknop:** `php bin/widget-stats.php`.

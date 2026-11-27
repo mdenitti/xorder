@@ -47,20 +47,12 @@ final class Request
     public static function capture(string $configuredBaseUrl = '', string $appUrl = ''): self
     {
         $method = (string) ($_SERVER['REQUEST_METHOD'] ?? 'GET');
-        $rawUri = (string) ($_SERVER['REQUEST_URI'] ?? '/');
-        $parsedPath = parse_url($rawUri, PHP_URL_PATH);
-        $uriPath = is_string($parsedPath) ? $parsedPath : '/';
-
         $basePath = self::detectBasePath($configuredBaseUrl, $_SERVER);
 
-        $path = $uriPath;
-        if ($basePath !== '' && str_starts_with($path, $basePath)) {
-            $path = substr($path, strlen($basePath));
-        }
-        $path = '/' . ltrim((string) $path, '/');
-        if ($path !== '/') {
-            $path = rtrim($path, '/');
-        }
+        // Geen rewrites: het uitgevoerde .php-bestand (+ query) bepaalt het logische pad,
+        // bv. order-edit.php?id=5 => /app/orders/5/edit (zie Routes).
+        $scriptName = str_replace('\\', '/', (string) ($_SERVER['SCRIPT_NAME'] ?? '/index.php'));
+        $path = Routes::fromFile(basename($scriptName), $_GET);
 
         $request = new self($method, $path, $basePath, $_GET, $_POST, $_SERVER);
         $request->appUrl = rtrim($appUrl, '/');
@@ -115,21 +107,19 @@ final class Request
         return $this->basePath;
     }
 
+    /**
+     * Link binnen de app. Geef het logische pad mee (bv. '/app/orders/5/edit', mag ook ?query en #anker bevatten)
+     * en je krijgt de link naar het juiste .php-bestand terug (bv. '/order-edit.php?id=5'). Zie Routes.
+     */
     public function url(string $path = '/'): string
     {
-        $normalized = '/' . ltrim($path, '/');
-        if ($normalized === '/') {
-            return $this->basePath === '' ? '/' : $this->basePath . '/';
-        }
-
-        return $this->basePath . $normalized;
+        return $this->basePath . $this->mapPath($path);
     }
 
     public function absoluteUrl(string $path = '/'): string
     {
         if ($this->appUrl !== '') {
-            $normalized = '/' . ltrim($path, '/');
-            return $this->appUrl . ($normalized === '/' ? '/' : $normalized);
+            return $this->appUrl . $this->mapPath($path);
         }
 
         $https = (!empty($this->server['HTTPS']) && $this->server['HTTPS'] !== 'off')
@@ -138,6 +128,33 @@ final class Request
         $host = (string) ($this->server['HTTP_HOST'] ?? 'localhost');
 
         return $scheme . '://' . $host . $this->url($path);
+    }
+
+    /**
+     * Logisch pad (met optionele ?query en #anker) => pad naar het .php-bestand, zonder basePath.
+     */
+    private function mapPath(string $path): string
+    {
+        $fragment = '';
+        $hashPos = strpos($path, '#');
+        if ($hashPos !== false) {
+            $fragment = substr($path, $hashPos);
+            $path = substr($path, 0, $hashPos);
+        }
+
+        $query = '';
+        $queryPos = strpos($path, '?');
+        if ($queryPos !== false) {
+            $query = substr($path, $queryPos + 1);
+            $path = substr($path, 0, $queryPos);
+        }
+
+        $mapped = Routes::toFile('/' . ltrim($path, '/'));
+        if ($query !== '') {
+            $mapped .= (str_contains($mapped, '?') ? '&' : '?') . $query;
+        }
+
+        return $mapped . $fragment;
     }
 
     public function query(string $key, mixed $default = null): mixed

@@ -1,14 +1,14 @@
 # Enkel nodig als het VOLLEDIGE project in de webroot staat (bv. snelle installatie op een (sub)domein).
 # Op assurio.be staat enkel public/ in de webroot en de rest erbuiten: daar wordt dit bestand niet gebruikt.
+# Geen navigatie-rewrites meer: de app draait in public/ (index.php in deze map stuurt je daarheen).
+# Dit bestand doet enkel nog beveiliging: interne mappen en bestanden zijn nooit bereikbaar.
+Options -Indexes
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
     # Interne mappen blokkeren
     RewriteRule ^(config|database|features|lang|src|storage|views|bin|dist|mcp-crashcourse)(/|$) - [F,L]
-
-    # Alles doorsturen naar public/
-    RewriteCond %{REQUEST_URI} !/public/
-    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
 
 <FilesMatch "\.(sql|sqlite|log|md)$">

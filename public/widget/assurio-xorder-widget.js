@@ -69,7 +69,7 @@
         if (!cfg.track) return;
         try {
             var base = cfg.targetUrl.replace(/\?.*$/, '').replace(/\/?$/, '/');
-            var url = cfg.trackUrl || (base + 'track');
+            var url = cfg.trackUrl || (base + 'track.php');
             var payload = JSON.stringify({
                 event: eventName,
                 lang: lang,

@@ -11,7 +11,7 @@ Iedereen bouwt een eigen feature. Om merge-conflicten te vermijden raakt niemand
 | | `README.md`, `.github/`, bestanden van een andere cursist |
 
 `<voornaam>` is in kleine letters, zonder spaties of accenten (bv. `jan`, `anne-sophie`).
-Je pagina verschijnt vanzelf op `/features/<voornaam>` en in het menu **Features**. Je hoeft geen route of menu toe te voegen.
+Je pagina verschijnt vanzelf op `/feature.php?naam=<voornaam>` en in het menu **Features**. Je hoeft geen route of menu toe te voegen.
 
 Een automatische controle (GitHub Actions) keurt je pull request af als je een ander bestand aanraakt.
 

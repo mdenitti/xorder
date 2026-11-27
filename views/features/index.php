@@ -20,7 +20,7 @@ declare(strict_types=1);
                 <?php foreach ($names as $name): ?>
                     <a class="card feature-card" href="<?= $e($url('/features/' . $name)) ?>">
                         <strong><?= $e(ucfirst($name)) ?></strong>
-                        <span>/features/<?= $e($name) ?></span>
+                        <span>feature.php?naam=<?= $e($name) ?></span>
                     </a>
                 <?php endforeach; ?>
             </div>

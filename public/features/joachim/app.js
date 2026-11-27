@@ -8,13 +8,6 @@
         body: document.getElementById('joachim-preview-body'),
         'cta-label': document.getElementById('joachim-preview-cta')
     };
-    var previewDefaults = {
-        subject: 'Je nieuwsbriefonderwerp',
-        preheader: 'Een persoonlijk bericht van jou',
-        headline: 'Jouw titel komt hier',
-        body: 'Je nieuwsbriefbericht verschijnt hier zodra je begint met schrijven.'
-    };
-
     document.querySelectorAll('[data-joachim-preview]').forEach(function (field) {
         var target = previewTargets[field.dataset.joachimPreview];
         if (!target) {
@@ -23,7 +16,7 @@
 
         var updatePreview = function () {
             var value = field.value.trim();
-            target.textContent = value || previewDefaults[field.dataset.joachimPreview] || '';
+            target.textContent = value || field.dataset.joachimDefault || '';
 
             if (field.dataset.joachimPreview === 'cta-label') {
                 var wrapper = document.getElementById('joachim-preview-cta-wrap');
@@ -46,7 +39,7 @@
 
     document.querySelectorAll('form[data-joachim-confirm]').forEach(function (form) {
         form.addEventListener('submit', function (event) {
-            if (!window.confirm(form.dataset.joachimConfirm || 'Weet je het zeker?')) {
+            if (!window.confirm(form.dataset.joachimConfirm)) {
                 event.preventDefault();
             }
         });

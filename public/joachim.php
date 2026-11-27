@@ -2,7 +2,44 @@
 
 declare(strict_types=1);
 
+use App\Core\App;
 use App\Core\Response;
+use App\Repositories\UserRepository;
+
+if (!defined('XORDER_PUBLIC_DIR')) {
+    define('XORDER_PUBLIC_DIR', __DIR__);
+}
+
+$rootDir = dirname(__DIR__);
+if (is_file(__DIR__ . '/xorder-path.php')) {
+    $rootDir = (string) require __DIR__ . '/xorder-path.php';
+}
+
+require_once $rootDir . '/src/autoload.php';
+
+$app = new App($rootDir);
+$request = $app->request;
+$userRepo = new UserRepository($app->db);
+$userId = $app->session->userId();
+$user = $userId !== null ? $userRepo->findById($userId) : null;
+$e = static fn (mixed $value): string => htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+$url = static fn (string $path = '/', array $query = []): string => $request->url($path, $query);
+$csrfField = static fn (): string => $app->csrf->field();
+$featureUrl = $url('/joachim');
+$asset = static fn (string $file): string => $url('/features/joachim/' . ltrim($file, '/'));
+
+if ($request->isPost()) {
+    $csrfRaw = $request->post('_csrf');
+    $csrfToken = is_string($csrfRaw) ? $csrfRaw : null;
+    if (!$app->csrf->verify($csrfToken)) {
+        $app->session->flash('error', $app->i18n->t('error.csrf'));
+        Response::redirect($featureUrl)->send();
+        exit;
+    }
+}
+
+ob_start();
+$result = (static function () use ($app, $request, $user, $e, $url, $csrfField, $featureUrl, $asset) {
 
 $joachimLocale = $app->i18n->locale() === 'fr' ? 'fr' : 'nl';
 $joachimMessages = [
@@ -273,8 +310,8 @@ if ($legacyRecipients !== null) {
 
 $requestedView = $request->query('view');
 $activeView = $requestedView === 'recipients' ? 'recipients' : 'editor';
-$viewUrl = static function (string $view, array $query = []) use ($url, $featureName): string {
-    return $url('/features', array_merge(['name' => $featureName, 'view' => $view], $query));
+$viewUrl = static function (string $view, array $query = []) use ($url): string {
+    return $url('/joachim', array_merge(['view' => $view], $query));
 };
 
 if ($activeView === 'recipients') {
@@ -578,7 +615,7 @@ if ($request->isPost()) {
         }
 
         $app->session->flash('success', $joachimText('saved'));
-        return Response::redirect($url('/features', ['name' => $featureName, 'id' => $editingId]));
+        return Response::redirect($url('/joachim', ['id' => $editingId]));
     }
 } else {
     $queryId = $request->query('id');
@@ -761,7 +798,7 @@ $drafts = $app->db->fetchAll(
                             <small><?= $e($joachimText('updated_at')) ?> <?= $e($updatedAt->format($joachimLocale === 'fr' ? 'd/m/Y H:i' : 'd-m-Y H:i')) ?></small>
                         </div>
                         <div class="joachim-draft-actions">
-                            <a class="btn btn-secondary" href="<?= $e($url('/features', ['name' => $featureName, 'id' => (int) $draft['id']])) ?>"><?= $e($joachimText('edit')) ?></a>
+                            <a class="btn btn-secondary" href="<?= $e($url('/joachim', ['id' => (int) $draft['id']])) ?>"><?= $e($joachimText('edit')) ?></a>
                             <form method="post" action="<?= $e($featureUrl) ?>" data-joachim-confirm="<?= $e($joachimText('confirm_delete')) ?>">
                                 <?= $csrfField() ?>
                                 <input type="hidden" name="action" value="delete">
@@ -879,3 +916,19 @@ $drafts = $app->db->fetchAll(
 </div>
 
 <script src="<?= $e($asset('app.js')) ?>"></script>
+<?php
+})();
+
+$content = (string) ob_get_clean();
+if ($result instanceof Response) {
+    $result->send();
+    exit;
+}
+
+$html = $app->view->renderPartial('layouts/base', [
+    'pageTitle' => 'Nieuwsbriefstudio',
+    'user' => $user,
+    'content' => '<section class="section feature-page feature-joachim"><div class="container">' . $content . '</div></section>',
+]);
+
+Response::html($html)->send();

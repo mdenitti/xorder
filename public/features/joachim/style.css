@@ -152,11 +152,6 @@
     padding-top: 2px;
 }
 
-.joachim-form-actions .btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.62;
-}
-
 .joachim-publish-help {
     margin: -10px 0 0;
     color: var(--ink-600);
@@ -499,17 +494,13 @@
     letter-spacing: -0.02em;
 }
 
-.joachim-recipient-toolbar form {
-    margin: 0;
-}
-
 .joachim-recipient-summary {
     margin: 5px 0 0;
     color: var(--ink-600);
     font-size: 0.84rem;
 }
 
-.joachim-test-notice {
+.joachim-list-notice {
     margin: 0;
     padding: 13px 15px;
     border: 1px solid #ead8b8;
@@ -656,11 +647,6 @@
     .joachim-recipient {
         align-items: flex-start;
         flex-direction: column;
-    }
-
-    .joachim-recipient-toolbar form,
-    .joachim-recipient-toolbar .btn {
-        width: 100%;
     }
 
     .joachim-recipient-editor,

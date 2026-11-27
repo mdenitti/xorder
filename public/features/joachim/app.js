@@ -37,6 +37,12 @@
         });
     }
 
+    document.querySelectorAll('[data-joachim-alert]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            window.alert(button.dataset.joachimAlert);
+        });
+    });
+
     document.querySelectorAll('form[data-joachim-confirm]').forEach(function (form) {
         form.addEventListener('submit', function (event) {
             if (!window.confirm(form.dataset.joachimConfirm)) {

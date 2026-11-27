@@ -15,29 +15,27 @@ $joachimMessages = [
         'hero_description' => 'Maak een verzorgd nieuwsbriefconcept voor je klanten.',
         'status' => 'Concepten',
         'editor_tab' => 'Nieuwsbrieven',
-        'recipients_tab' => 'Testmailinglijst',
-        'manager_eyebrow' => 'TESTONTVANGERS BEHEREN',
-        'manager_title' => 'Testmailinglijst',
-        'manager_status' => 'TESTMODUS',
-        'manager_description' => 'Beheer je fictieve testontvangers apart van je nieuwsbriefconcepten.',
+        'recipients_tab' => 'Mailinglijst',
+        'manager_eyebrow' => 'MAILINGLIJST BEHEREN',
+        'manager_title' => 'Mailinglijst',
+        'manager_status' => 'Contacten',
+        'manager_description' => 'Beheer hier de contacten voor je nieuwsbrieven, apart van je concepten.',
         'manager_nav_label' => 'Nieuwsbriefonderdelen',
-        'list_title' => 'Demo-ontvangers',
-        'test_data_notice' => 'Alleen testgegevens. Adressen eindigen op @example.test en er wordt niets verstuurd.',
+        'list_title' => 'Alle contacten',
+        'list_notice' => 'Beheer hier de contacten voor je nieuwsbrieven. Verzenden is nog niet beschikbaar.',
         'recipient_count_one' => 'contact',
         'recipient_count_many' => 'contacten',
         'active_count' => 'ingeschreven',
         'name_label' => 'Naam',
         'name_placeholder' => 'Bijvoorbeeld: Alex Martin',
         'email_label' => 'E-mailadres',
-        'email_placeholder' => 'alex@example.test',
-        'email_hint' => 'Gebruik alleen fictieve adressen op het domein @example.test.',
+        'email_placeholder' => 'alex@example.com',
+        'email_hint' => 'Voeg alleen contacten toe die toestemming hebben gegeven voor je nieuwsbrief.',
         'add_recipient' => 'Contact toevoegen',
         'save_recipient' => 'Wijzigingen bewaren',
         'cancel' => 'Annuleren',
-        'load_samples' => 'Voorbeeldcontacten toevoegen',
-        'samples_loaded' => 'Voorbeeldcontacten zijn toegevoegd of stonden al in de lijst.',
-        'recipients_empty_title' => 'Je testlijst is nog leeg',
-        'recipients_empty_message' => 'Voeg een fictief contact toe of laad de voorbeeldcontacten om de lijstweergave te testen.',
+        'recipients_empty_title' => 'Je mailinglijst is nog leeg',
+        'recipients_empty_message' => 'Voeg een contact toe aan je mailinglijst om het hier te beheren.',
         'status_label' => 'Status',
         'status_subscribed' => 'Ingeschreven',
         'status_unsubscribed' => 'Uitgeschreven',
@@ -45,17 +43,17 @@ $joachimMessages = [
         'resubscribe_action' => 'Opnieuw inschrijven',
         'edit_recipient' => 'Bewerken',
         'delete_recipient' => 'Verwijderen',
-        'confirm_delete_recipient' => 'Dit testcontact verwijderen?',
+        'confirm_delete_recipient' => 'Dit contact verwijderen?',
         'error_recipient_type' => 'Vul een geldige naam en een geldig e-mailadres in.',
         'error_recipient_required' => 'Naam en e-mailadres zijn verplicht.',
         'error_recipient_name_length' => 'De naam mag maximaal 100 tekens bevatten.',
-        'error_recipient_email' => 'Gebruik een geldig e-mailadres op het domein @example.test.',
-        'error_recipient_duplicate' => 'Dit e-mailadres staat al in je testlijst.',
-        'error_recipient_not_found' => 'Dit testcontact kon niet worden gevonden.',
-        'error_recipient_status' => 'Ongeldige status voor het testcontact.',
-        'recipient_added' => 'Testcontact toegevoegd.',
-        'recipient_saved' => 'Testcontact bijgewerkt.',
-        'recipient_deleted' => 'Testcontact verwijderd.',
+        'error_recipient_email' => 'Vul een geldig e-mailadres in.',
+        'error_recipient_duplicate' => 'Dit e-mailadres staat al in je mailinglijst.',
+        'error_recipient_not_found' => 'Dit contact kon niet worden gevonden.',
+        'error_recipient_status' => 'Ongeldige inschrijfstatus.',
+        'recipient_added' => 'Contact toegevoegd.',
+        'recipient_saved' => 'Contact bijgewerkt.',
+        'recipient_deleted' => 'Contact verwijderd.',
         'recipient_status_updated' => 'Inschrijfstatus bijgewerkt.',
         'new_edition' => 'NIEUWE EDITIE',
         'editor_new' => 'Stel je nieuwsbrief samen',
@@ -90,8 +88,9 @@ $joachimMessages = [
         'cta_url_placeholder' => 'https://voorbeeld.be/menu',
         'cta_url_hint' => 'Gebruik een volledige link die met http:// of https:// begint.',
         'save_draft' => 'Bewaar concept',
-        'publish' => 'Verzenden (binnenkort)',
-        'publish_help' => 'Verzenden wordt beschikbaar zodra de klantenlijst en mailingkoppeling bestaan.',
+        'publish' => 'Verzenden',
+        'publish_alert' => 'Verzenden is nog niet aangesloten. Er wordt geen e-mail verstuurd.',
+        'publish_help' => 'Verzenden is nog niet aangesloten. Er wordt geen e-mail verstuurd.',
         'preview_eyebrow' => 'ZO ZIET HET ERUIT',
         'preview_title' => 'Voorbeeld',
         'email' => 'E-mail',
@@ -124,29 +123,27 @@ $joachimMessages = [
         'hero_description' => 'Créez un brouillon de newsletter soigné pour vos clients.',
         'status' => 'Brouillons',
         'editor_tab' => 'Newsletters',
-        'recipients_tab' => 'Liste de test',
-        'manager_eyebrow' => 'GESTION DES DESTINATAIRES DE TEST',
-        'manager_title' => 'Liste de test',
-        'manager_status' => 'MODE TEST',
-        'manager_description' => 'Gérez vos destinataires fictifs séparément de vos brouillons de newsletter.',
+        'recipients_tab' => 'Liste de diffusion',
+        'manager_eyebrow' => 'GESTION DE LA LISTE DE DIFFUSION',
+        'manager_title' => 'Liste de diffusion',
+        'manager_status' => 'Contacts',
+        'manager_description' => 'Gérez ici les contacts de vos newsletters, séparément de vos brouillons.',
         'manager_nav_label' => 'Sections de newsletter',
-        'list_title' => 'Destinataires de démonstration',
-        'test_data_notice' => 'Données de test uniquement. Les adresses se terminent par @example.test et aucun message ne sera envoyé.',
+        'list_title' => 'Tous les contacts',
+        'list_notice' => 'Gérez ici les contacts de vos newsletters. L’envoi n’est pas encore disponible.',
         'recipient_count_one' => 'contact',
         'recipient_count_many' => 'contacts',
         'active_count' => 'inscrits',
         'name_label' => 'Nom',
         'name_placeholder' => 'Par exemple : Alex Martin',
         'email_label' => 'Adresse e-mail',
-        'email_placeholder' => 'alex@example.test',
-        'email_hint' => 'Utilisez uniquement des adresses fictives sur le domaine @example.test.',
+        'email_placeholder' => 'alex@example.com',
+        'email_hint' => 'Ajoutez uniquement des contacts ayant accepté de recevoir votre newsletter.',
         'add_recipient' => 'Ajouter un contact',
         'save_recipient' => 'Enregistrer les modifications',
         'cancel' => 'Annuler',
-        'load_samples' => 'Ajouter des contacts de démonstration',
-        'samples_loaded' => 'Les contacts de démonstration ont été ajoutés ou figuraient déjà dans la liste.',
-        'recipients_empty_title' => 'Votre liste de test est vide',
-        'recipients_empty_message' => 'Ajoutez un contact fictif ou chargez les exemples pour tester la liste.',
+        'recipients_empty_title' => 'Votre liste de diffusion est vide',
+        'recipients_empty_message' => 'Ajoutez un contact à votre liste de diffusion pour le gérer ici.',
         'status_label' => 'Statut',
         'status_subscribed' => 'Inscrit',
         'status_unsubscribed' => 'Désinscrit',
@@ -154,17 +151,17 @@ $joachimMessages = [
         'resubscribe_action' => 'Réinscrire',
         'edit_recipient' => 'Modifier',
         'delete_recipient' => 'Supprimer',
-        'confirm_delete_recipient' => 'Supprimer ce contact de test ?',
+        'confirm_delete_recipient' => 'Supprimer ce contact ?',
         'error_recipient_type' => 'Saisissez un nom et une adresse e-mail valides.',
         'error_recipient_required' => 'Le nom et l’adresse e-mail sont obligatoires.',
         'error_recipient_name_length' => 'Le nom ne peut pas dépasser 100 caractères.',
-        'error_recipient_email' => 'Utilisez une adresse e-mail valide sur le domaine @example.test.',
-        'error_recipient_duplicate' => 'Cette adresse e-mail figure déjà dans votre liste de test.',
-        'error_recipient_not_found' => 'Ce contact de test est introuvable.',
-        'error_recipient_status' => 'Le statut de ce contact de test n’est pas valide.',
-        'recipient_added' => 'Contact de test ajouté.',
-        'recipient_saved' => 'Contact de test mis à jour.',
-        'recipient_deleted' => 'Contact de test supprimé.',
+        'error_recipient_email' => 'Saisissez une adresse e-mail valide.',
+        'error_recipient_duplicate' => 'Cette adresse e-mail figure déjà dans votre liste.',
+        'error_recipient_not_found' => 'Ce contact est introuvable.',
+        'error_recipient_status' => 'Le statut d’inscription n’est pas valide.',
+        'recipient_added' => 'Contact ajouté.',
+        'recipient_saved' => 'Contact mis à jour.',
+        'recipient_deleted' => 'Contact supprimé.',
         'recipient_status_updated' => 'Statut d’inscription mis à jour.',
         'new_edition' => 'NOUVELLE ÉDITION',
         'editor_new' => 'Composez votre newsletter',
@@ -199,8 +196,9 @@ $joachimMessages = [
         'cta_url_placeholder' => 'https://exemple.be/menu',
         'cta_url_hint' => 'Utilisez une adresse complète commençant par http:// ou https://.',
         'save_draft' => 'Enregistrer le brouillon',
-        'publish' => 'Envoyer (bientôt)',
-        'publish_help' => 'L’envoi sera disponible lorsque la liste de clients et la connexion de mailing seront prêtes.',
+        'publish' => 'Envoyer',
+        'publish_alert' => 'L’envoi n’est pas encore configuré. Aucun e-mail ne sera envoyé.',
+        'publish_help' => 'L’envoi n’est pas encore configuré. Aucun e-mail ne sera envoyé.',
         'preview_eyebrow' => 'APERÇU DU RÉSULTAT',
         'preview_title' => 'Aperçu',
         'email' => 'E-mail',
@@ -249,7 +247,7 @@ $app->db->pdo()->exec(
 );
 
 $app->db->pdo()->exec(
-    'CREATE TABLE IF NOT EXISTS joachim_test_recipients (
+    'CREATE TABLE IF NOT EXISTS joachim_mailing_recipients (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER NOT NULL,
         name TEXT NOT NULL,
@@ -259,6 +257,19 @@ $app->db->pdo()->exec(
         UNIQUE (user_id, email)
     )'
 );
+
+// Keep existing contacts while replacing the previous temporary table.
+$legacyRecipients = $app->db->fetchOne(
+    'SELECT name FROM sqlite_master WHERE type = ? AND name = ?',
+    ['table', 'joachim_test_recipients']
+);
+if ($legacyRecipients !== null) {
+    $app->db->pdo()->exec(
+        'INSERT OR IGNORE INTO joachim_mailing_recipients (id, user_id, name, email, status, created_at)
+         SELECT id, user_id, name, email, status, created_at FROM joachim_test_recipients'
+    );
+    $app->db->pdo()->exec('DROP TABLE joachim_test_recipients');
+}
 
 $requestedView = $request->query('view');
 $activeView = $requestedView === 'recipients' ? 'recipients' : 'editor';
@@ -275,29 +286,6 @@ if ($activeView === 'recipients') {
         $actionValue = $request->post('action', '');
         $recipientAction = is_string($actionValue) ? $actionValue : '';
 
-        if ($recipientAction === 'seed_recipients') {
-            $sampleRecipients = [
-                ['Alex Martin', 'alex.martin@example.test'],
-                ['Noor Janssens', 'noor.janssens@example.test'],
-                ['Lou Dupont', 'lou.dupont@example.test'],
-            ];
-            foreach ($sampleRecipients as [$name, $email]) {
-                $existingRecipient = $app->db->fetchOne(
-                    'SELECT id FROM joachim_test_recipients WHERE user_id = ? AND email = ?',
-                    [$user->id, $email]
-                );
-                if ($existingRecipient === null) {
-                    $app->db->execute(
-                        'INSERT INTO joachim_test_recipients (user_id, name, email, status, created_at)
-                         VALUES (?, ?, ?, ?, ?)',
-                        [$user->id, $name, $email, 'subscribed', date('Y-m-d H:i:s')]
-                    );
-                }
-            }
-            $app->session->flash('success', $joachimText('samples_loaded'));
-            return Response::redirect($viewUrl('recipients'));
-        }
-
         if ($recipientAction === 'delete_recipient' || $recipientAction === 'toggle_recipient') {
             $rawRecipientId = $request->post('recipient_id');
             $recipientId = is_string($rawRecipientId) || is_int($rawRecipientId)
@@ -311,7 +299,7 @@ if ($activeView === 'recipients') {
 
             if ($recipientAction === 'delete_recipient') {
                 $deleted = $app->db->execute(
-                    'DELETE FROM joachim_test_recipients WHERE id = ? AND user_id = ?',
+                    'DELETE FROM joachim_mailing_recipients WHERE id = ? AND user_id = ?',
                     [$recipientId, $user->id]
                 );
                 $app->session->flash(
@@ -327,7 +315,7 @@ if ($activeView === 'recipients') {
                 return Response::redirect($viewUrl('recipients'));
             }
             $updated = $app->db->execute(
-                'UPDATE joachim_test_recipients SET status = ? WHERE id = ? AND user_id = ?',
+                'UPDATE joachim_mailing_recipients SET status = ? WHERE id = ? AND user_id = ?',
                 [$nextStatus, $recipientId, $user->id]
             );
             $app->session->flash(
@@ -351,7 +339,7 @@ if ($activeView === 'recipients') {
                 $recipientError = $joachimText('error_recipient_not_found');
             } else {
                 $existingRecipient = $app->db->fetchOne(
-                    'SELECT id FROM joachim_test_recipients WHERE id = ? AND user_id = ?',
+                    'SELECT id FROM joachim_mailing_recipients WHERE id = ? AND user_id = ?',
                     [$recipientId, $user->id]
                 );
                 if ($existingRecipient === null) {
@@ -377,18 +365,18 @@ if ($activeView === 'recipients') {
             } elseif (mb_strlen($recipientForm['name'], 'UTF-8') > 100) {
                 $recipientError = $joachimText('error_recipient_name_length');
             } elseif (
-                filter_var($recipientForm['email'], FILTER_VALIDATE_EMAIL) === false
-                || !str_ends_with($recipientForm['email'], '@example.test')
+                mb_strlen($recipientForm['email'], 'UTF-8') > 254
+                || filter_var($recipientForm['email'], FILTER_VALIDATE_EMAIL) === false
             ) {
                 $recipientError = $joachimText('error_recipient_email');
             } else {
                 $duplicateRecipient = $editingRecipientId === null
                     ? $app->db->fetchOne(
-                        'SELECT id FROM joachim_test_recipients WHERE user_id = ? AND email = ?',
+                        'SELECT id FROM joachim_mailing_recipients WHERE user_id = ? AND email = ?',
                         [$user->id, $recipientForm['email']]
                     )
                     : $app->db->fetchOne(
-                        'SELECT id FROM joachim_test_recipients WHERE user_id = ? AND email = ? AND id != ?',
+                        'SELECT id FROM joachim_mailing_recipients WHERE user_id = ? AND email = ? AND id != ?',
                         [$user->id, $recipientForm['email'], $editingRecipientId]
                     );
                 if ($duplicateRecipient !== null) {
@@ -400,14 +388,14 @@ if ($activeView === 'recipients') {
         if ($recipientError === null) {
             if ($editingRecipientId === null) {
                 $app->db->execute(
-                    'INSERT INTO joachim_test_recipients (user_id, name, email, status, created_at)
+                    'INSERT INTO joachim_mailing_recipients (user_id, name, email, status, created_at)
                      VALUES (?, ?, ?, ?, ?)',
                     [$user->id, $recipientForm['name'], $recipientForm['email'], 'subscribed', date('Y-m-d H:i:s')]
                 );
                 $message = 'recipient_added';
             } else {
                 $app->db->execute(
-                    'UPDATE joachim_test_recipients SET name = ?, email = ? WHERE id = ? AND user_id = ?',
+                    'UPDATE joachim_mailing_recipients SET name = ?, email = ? WHERE id = ? AND user_id = ?',
                     [$recipientForm['name'], $recipientForm['email'], $editingRecipientId, $user->id]
                 );
                 $message = 'recipient_saved';
@@ -426,7 +414,7 @@ if ($activeView === 'recipients') {
                 return Response::redirect($viewUrl('recipients'));
             }
             $recipient = $app->db->fetchOne(
-                'SELECT id, name, email FROM joachim_test_recipients WHERE id = ? AND user_id = ?',
+                'SELECT id, name, email FROM joachim_mailing_recipients WHERE id = ? AND user_id = ?',
                 [$recipientId, $user->id]
             );
             if ($recipient === null) {
@@ -438,15 +426,15 @@ if ($activeView === 'recipients') {
         }
     }
 
-    $testRecipients = $app->db->fetchAll(
+    $recipients = $app->db->fetchAll(
         'SELECT id, name, email, status, created_at
-         FROM joachim_test_recipients WHERE user_id = ? ORDER BY name COLLATE NOCASE, id',
+         FROM joachim_mailing_recipients WHERE user_id = ? ORDER BY name COLLATE NOCASE, id',
         [$user->id]
     );
     $recipientStats = $app->db->fetchOne(
         'SELECT COUNT(*) AS total,
                 SUM(CASE WHEN status = ? THEN 1 ELSE 0 END) AS subscribed
-         FROM joachim_test_recipients WHERE user_id = ?',
+         FROM joachim_mailing_recipients WHERE user_id = ?',
         ['subscribed', $user->id]
     ) ?? ['total' => 0, 'subscribed' => 0];
 } else {
@@ -705,7 +693,7 @@ $drafts = $app->db->fetchAll(
 
                 <div class="joachim-form-actions">
                     <button class="btn btn-primary" type="submit"><?= $e($joachimText('save_draft')) ?></button>
-                    <button class="btn btn-secondary" type="button" disabled aria-describedby="joachim-publish-help"><?= $e($joachimText('publish')) ?></button>
+                    <button class="btn btn-secondary" type="button" aria-describedby="joachim-publish-help" data-joachim-alert="<?= $e($joachimText('publish_alert')) ?>"><?= $e($joachimText('publish')) ?></button>
                 </div>
                 <p class="joachim-publish-help" id="joachim-publish-help"><?= $e($joachimText('publish_help')) ?></p>
             </form>
@@ -794,14 +782,9 @@ $drafts = $app->db->fetchAll(
                 <h2><?= (int) $recipientStats['total'] ?> <?= $e($joachimText((int) $recipientStats['total'] === 1 ? 'recipient_count_one' : 'recipient_count_many')) ?></h2>
                 <p class="joachim-recipient-summary"><?= (int) $recipientStats['subscribed'] ?> <?= $e($joachimText('active_count')) ?></p>
             </div>
-            <form method="post" action="<?= $e($viewUrl('recipients')) ?>">
-                <?= $csrfField() ?>
-                <input type="hidden" name="action" value="seed_recipients">
-                <button class="btn btn-secondary" type="submit"><?= $e($joachimText('load_samples')) ?></button>
-            </form>
         </div>
 
-        <p class="joachim-test-notice" role="note"><?= $e($joachimText('test_data_notice')) ?></p>
+        <p class="joachim-list-notice" role="note"><?= $e($joachimText('list_notice')) ?></p>
 
         <div class="joachim-recipient-workspace">
             <section class="joachim-recipient-editor card" aria-labelledby="joachim-recipient-editor-title">
@@ -851,7 +834,7 @@ $drafts = $app->db->fetchAll(
                     <span class="joachim-draft-count"><?= (int) $recipientStats['total'] ?> <?= $e($joachimText((int) $recipientStats['total'] === 1 ? 'recipient_count_one' : 'recipient_count_many')) ?></span>
                 </div>
 
-                <?php if ($testRecipients === []): ?>
+                <?php if ($recipients === []): ?>
                     <div class="joachim-empty">
                         <span class="joachim-empty-icon" aria-hidden="true">+</span>
                         <h3><?= $e($joachimText('recipients_empty_title')) ?></h3>
@@ -859,7 +842,7 @@ $drafts = $app->db->fetchAll(
                     </div>
                 <?php else: ?>
                     <ul class="joachim-recipient-list">
-                        <?php foreach ($testRecipients as $recipient): ?>
+                        <?php foreach ($recipients as $recipient): ?>
                             <?php $isSubscribed = $recipient['status'] === 'subscribed'; ?>
                             <li class="joachim-recipient">
                                 <div class="joachim-recipient-copy">

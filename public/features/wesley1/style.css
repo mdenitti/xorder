@@ -1,0 +1,956 @@
+/* Stijlen voor de feature van wesley1 (feestelijke menukaart). Elke klasse begint met .wesley1- */
+
+/* ======================================================================
+   Basis
+   ====================================================================== */
+.wesley1-app {
+    --wesley1-rand: var(--border, #e3ded4);
+    --wesley1-zacht: var(--cream-50, #faf8f4);
+    --wesley1-pine: var(--pine-900, #14332b);
+    --wesley1-goud-app: var(--gold-500, #c88a2e);
+    --wesley1-tekst: var(--ink-900, #182220);
+    --wesley1-tekst-zacht: var(--ink-600, #4c5b57);
+    --wesley1-tekst-vaag: var(--ink-400, #7c8b87);
+    --wesley1-radius: var(--radius-lg, 18px);
+
+    display: grid;
+    gap: 28px;
+    color: var(--wesley1-tekst);
+}
+
+.wesley1-app svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* ======================================================================
+   Kopbalk
+   ====================================================================== */
+.wesley1-kop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 32px;
+    border-radius: var(--wesley1-radius);
+    background:
+        radial-gradient(circle at 92% 0%, rgba(200, 138, 46, 0.28), transparent 45%),
+        linear-gradient(135deg, var(--pine-950, #0c211b), var(--pine-800, #1d473c));
+    color: #fff;
+    box-shadow: var(--shadow-md, 0 12px 32px rgba(20, 51, 43, 0.08));
+}
+
+.wesley1-kop-tekst {
+    max-width: 560px;
+}
+
+.wesley1-eyebrow {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--gold-100, #fbf3e4);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.wesley1-kop h1 {
+    margin: 0 0 6px;
+    color: #fff;
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    line-height: 1.15;
+}
+
+.wesley1-kop p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+/* Rechts in de kopbalk: de afdrukknop, verticaal in het midden en rechts uitgelijnd */
+.wesley1-kop-acties {
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+}
+
+/* ======================================================================
+   Knoppen: elke tekstknop op deze pagina is even groot en gelijk van vorm
+   ====================================================================== */
+.wesley1-app .wesley1-knop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+    height: 42px;
+    min-width: 240px;
+    margin: 0;
+    padding: 0 20px;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.wesley1-app .wesley1-knop svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ======================================================================
+   Werkblad: lijst links, zijbalk rechts
+   ====================================================================== */
+.wesley1-werkblad {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    align-items: start;
+}
+
+/* Linkerkolom: lijst en voorbeeld onder elkaar. Ze is altijd de langste kolom,
+   zodat er geen leeg vlak ontstaat; de zijbalk schuift mee (sticky) op zijn eigen hoogte. */
+.wesley1-hoofdkolom {
+    display: grid;
+    gap: 24px;
+    min-width: 0;
+}
+
+.wesley1-zijbalk {
+    display: grid;
+    gap: 20px;
+    position: sticky;
+    top: calc(var(--header-offset, 92px) + 8px);
+}
+
+.wesley1-paneel {
+    margin: 0;
+    padding: 22px;
+    border: 1px solid var(--wesley1-rand);
+    border-radius: var(--wesley1-radius);
+    background: var(--surface, #fff);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(20, 51, 43, 0.06));
+}
+
+.wesley1-paneel-kop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.wesley1-paneel-kop h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.wesley1-paneel-kop p {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+    color: var(--wesley1-tekst-zacht);
+}
+
+.wesley1-paneel-kop form {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Formuliervelden */
+.wesley1-velden {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+}
+
+.wesley1-veld {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+}
+
+.wesley1-veld > span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--wesley1-tekst-zacht);
+}
+
+.wesley1-hint {
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm, 8px);
+    background: var(--wesley1-zacht);
+    font-size: 0.85rem;
+    color: var(--wesley1-tekst-zacht);
+}
+
+/* Tabbladen in het paneel "Toevoegen" */
+.wesley1-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 16px;
+    padding: 4px;
+    border-radius: var(--radius-md, 12px);
+    background: var(--cream-100, #f3efe7);
+}
+
+.wesley1-tab {
+    padding: 8px 10px;
+    border: 0;
+    border-radius: var(--radius-sm, 8px);
+    background: transparent;
+    color: var(--wesley1-tekst-zacht);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wesley1-tab[aria-selected="true"] {
+    background: var(--surface, #fff);
+    color: var(--wesley1-pine);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(20, 51, 43, 0.06));
+}
+
+.wesley1-tab:focus-visible {
+    outline: 2px solid var(--wesley1-goud-app);
+    outline-offset: 2px;
+}
+
+/* Zonder JavaScript zijn beide formulieren zichtbaar; met JavaScript enkel het gekozen tabblad */
+.wesley1-js .wesley1-tabpaneel[hidden] {
+    display: none;
+}
+
+.wesley1-tabpaneel + .wesley1-tabpaneel {
+    margin-top: 20px;
+}
+
+.wesley1-js .wesley1-tabpaneel + .wesley1-tabpaneel {
+    margin-top: 0;
+}
+
+/* ======================================================================
+   Lijst met items op de kaart
+   ====================================================================== */
+.wesley1-rijen {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--wesley1-rand);
+    border-radius: var(--radius-md, 12px);
+    overflow: hidden;
+}
+
+.wesley1-rij + .wesley1-rij {
+    border-top: 1px solid var(--wesley1-rand);
+}
+
+.wesley1-rij-hoofd {
+    display: grid;
+    grid-template-columns: auto 28px minmax(0, 1fr) auto auto auto;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    transition: background 0.15s ease;
+}
+
+.wesley1-rij:hover .wesley1-rij-hoofd {
+    background: var(--wesley1-zacht);
+}
+
+/* Omhoog/omlaag naast elkaar, even groot als de andere icoonknoppen */
+.wesley1-volgorde {
+    display: flex;
+    gap: 4px;
+}
+
+.wesley1-volgorde form,
+.wesley1-rij-acties form {
+    margin: 0;
+}
+
+.wesley1-nummer {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--pine-100, #e7f0ed);
+    color: var(--wesley1-pine);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.wesley1-rij-tekst {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+}
+
+/* Naam altijd op één regel; te lang wordt afgekort met "…" (volledige naam bij muisaanwijzer) */
+.wesley1-rij-naam {
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wesley1-rij-omschrijving {
+    font-size: 0.85rem;
+    color: var(--wesley1-tekst-zacht);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wesley1-label {
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.wesley1-label-assortiment {
+    background: var(--pine-100, #e7f0ed);
+    color: var(--pine-800, #1d473c);
+}
+
+.wesley1-label-eigen {
+    background: var(--gold-100, #fbf3e4);
+    color: var(--gold-600, #b2771f);
+}
+
+.wesley1-rij-prijs {
+    min-width: 76px;
+    text-align: right;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.wesley1-rij-acties {
+    display: flex;
+    gap: 4px;
+}
+
+/* Kleine knoppen met enkel een icoon */
+.wesley1-icoonknop {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--wesley1-rand);
+    border-radius: var(--radius-sm, 8px);
+    background: var(--surface, #fff);
+    color: var(--wesley1-tekst-zacht);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.wesley1-icoonknop:hover:not(:disabled),
+.wesley1-icoonknop[aria-expanded="true"] {
+    border-color: var(--pine-800, #1d473c);
+    background: var(--pine-100, #e7f0ed);
+    color: var(--wesley1-pine);
+}
+
+.wesley1-icoonknop-gevaar:hover:not(:disabled) {
+    border-color: var(--danger-bg, #fdecec);
+    background: var(--danger-bg, #fdecec);
+    color: var(--danger-ink, #9c2424);
+}
+
+.wesley1-icoonknop:disabled {
+    opacity: 0.25;
+    cursor: default;
+}
+
+.wesley1-icoonknop:focus-visible {
+    outline: 2px solid var(--wesley1-goud-app);
+    outline-offset: 1px;
+}
+
+/* Aanpassen-formulier onder een rij */
+.wesley1-bewerk {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+    align-items: end;
+    margin: 0;
+    padding: 4px 14px 16px 142px;
+    background: var(--wesley1-zacht);
+}
+
+.wesley1-js .wesley1-bewerk[hidden] {
+    display: none;
+}
+
+.wesley1-bewerk-knoppen {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* ======================================================================
+   Lege toestanden
+   ====================================================================== */
+.wesley1-leeg {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 40px 24px;
+    border: 2px dashed var(--wesley1-rand);
+    border-radius: var(--radius-md, 12px);
+    background: var(--wesley1-zacht);
+    text-align: center;
+}
+
+.wesley1-leeg-start {
+    border-color: var(--wesley1-goud-app);
+    background: linear-gradient(180deg, var(--gold-100, #fbf3e4), var(--surface, #fff));
+}
+
+.wesley1-leeg-icoon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--surface, #fff);
+    color: var(--wesley1-goud-app);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(20, 51, 43, 0.06));
+}
+
+.wesley1-leeg-icoon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.wesley1-leeg h3 {
+    margin: 4px 0 0;
+    font-size: 1.15rem;
+}
+
+.wesley1-leeg p {
+    max-width: 440px;
+    margin: 0 0 6px;
+    color: var(--wesley1-tekst-zacht);
+}
+
+/* ======================================================================
+   Voorbeeld van de kaart
+   ====================================================================== */
+.wesley1-podium {
+    padding: 28px 24px 40px;
+    border-radius: var(--wesley1-radius);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(200, 138, 46, 0.12), transparent 60%),
+        var(--cream-100, #f3efe7);
+}
+
+.wesley1-podium-kop {
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.wesley1-podium-kop h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.wesley1-podium-kop p {
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    color: var(--wesley1-tekst-zacht);
+}
+
+/* ---------- De kaart zelf: feestelijke stijl ---------- */
+.wesley1-kaart {
+    --wesley1-rood: #8e1b22;
+    --wesley1-groen: #1f4a33;
+    --wesley1-goud: #b48a2c;
+    --wesley1-goud-licht: #e3c77a;
+    --wesley1-papier: #fdf7ea;
+    --wesley1-inkt: #2c2118;
+
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 14px;
+    background:
+        radial-gradient(circle at 0 0, var(--wesley1-rood) 0 22px, transparent 23px),
+        radial-gradient(circle at 100% 0, var(--wesley1-groen) 0 22px, transparent 23px),
+        radial-gradient(circle at 0 100%, var(--wesley1-groen) 0 22px, transparent 23px),
+        radial-gradient(circle at 100% 100%, var(--wesley1-rood) 0 22px, transparent 23px),
+        var(--wesley1-papier);
+    border: 3px solid var(--wesley1-goud);
+    border-radius: 6px;
+    box-shadow: 0 18px 40px rgba(60, 30, 10, 0.18);
+    color: var(--wesley1-inkt);
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+}
+
+.wesley1-kaart-binnen {
+    padding: 36px 44px 28px;
+    border: 1px solid var(--wesley1-goud-licht);
+    outline: 1px solid var(--wesley1-goud);
+    outline-offset: -7px;
+    background: var(--wesley1-papier);
+}
+
+.wesley1-kaart-kop {
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.wesley1-kaart-ster {
+    margin: 0 0 6px;
+    color: var(--wesley1-goud);
+    letter-spacing: 0.6em;
+    font-size: 0.9rem;
+}
+
+.wesley1-kaart-titel {
+    margin: 0;
+    color: var(--wesley1-rood);
+    font-family: inherit;
+    font-size: 2.4rem;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+}
+
+.wesley1-kaart-ondertitel {
+    margin: 8px 0 0;
+    color: var(--wesley1-groen);
+    font-size: 1.05rem;
+    font-variant: small-caps;
+    letter-spacing: 0.12em;
+}
+
+/* Gouden sierlijn met een ruit in het midden */
+.wesley1-kaart-sier {
+    position: relative;
+    height: 14px;
+    margin: 18px auto 0;
+    max-width: 320px;
+}
+
+.wesley1-kaart-sier::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 1px solid var(--wesley1-goud);
+}
+
+.wesley1-kaart-sier::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--wesley1-rood);
+    border: 2px solid var(--wesley1-goud);
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.wesley1-kaart-lijst {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+}
+
+.wesley1-kaart-item {
+    break-inside: avoid;
+}
+
+/* Naam ....... prijs */
+.wesley1-kaart-regel {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+/* Naam van het gerecht: altijd op één regel; te lang wordt afgekort met "…" */
+.wesley1-kaart-naam {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--wesley1-inkt);
+}
+
+/* Lege ruimte tussen naam en prijs (zonder stippellijn), zodat de prijzen rechts onder elkaar staan */
+.wesley1-kaart-stippen {
+    flex: 1;
+    min-width: 24px;
+}
+
+.wesley1-kaart-prijs {
+    font-weight: 700;
+    color: var(--wesley1-rood);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.wesley1-kaart-omschrijving {
+    margin: 3px 0 0;
+    color: var(--wesley1-groen);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.wesley1-kaart-leeg {
+    text-align: center;
+    font-style: italic;
+    color: var(--wesley1-groen);
+}
+
+.wesley1-kaart-voet {
+    margin-top: 26px;
+    text-align: center;
+}
+
+.wesley1-kaart-voet .wesley1-kaart-sier {
+    margin-top: 0;
+}
+
+.wesley1-kaart-voet p {
+    margin: 12px 0 0;
+    color: var(--wesley1-rood);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* ======================================================================
+   Kleinere schermen
+   ====================================================================== */
+@media (max-width: 1000px) {
+    .wesley1-werkblad {
+        grid-template-columns: 1fr;
+    }
+
+    /* Eén kolom, gewoon onder elkaar (geen kaders naast elkaar met lege ruimte):
+       lijst, dan instellingen en toevoegen, dan het voorbeeld */
+    .wesley1-hoofdkolom {
+        display: contents;
+    }
+
+    .wesley1-zijbalk {
+        position: static;
+    }
+
+    .wesley1-podium {
+        order: 3;
+    }
+}
+
+@media (max-width: 680px) {
+    .wesley1-kop {
+        padding: 22px 20px;
+    }
+
+    .wesley1-rij-hoofd {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 4px 10px;
+    }
+
+    .wesley1-nummer,
+    .wesley1-label {
+        display: none;
+    }
+
+    .wesley1-rij-prijs {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .wesley1-rij-acties {
+        grid-column: 2 / -1;
+        justify-content: flex-end;
+    }
+
+    .wesley1-bewerk {
+        grid-template-columns: 1fr;
+        padding: 4px 14px 16px;
+    }
+
+    .wesley1-kaart-binnen {
+        padding: 28px 18px 22px;
+    }
+
+    .wesley1-kaart-titel {
+        font-size: 1.8rem;
+    }
+}
+
+/* ======================================================================
+   Afdrukken: enkel de kaart, op A4
+   ====================================================================== */
+@page {
+    size: A4 portrait;
+    margin: 12mm;
+}
+
+@media print {
+    /* Header, menu, footer, meldingen, beheer en knoppen hebben .no-print */
+    .no-print {
+        display: none !important;
+    }
+
+    /* Bij afdrukken is de zijbalk weg: geen kolommen meer, de kaart krijgt de volle breedte */
+    .wesley1-werkblad,
+    .wesley1-hoofdkolom {
+        display: block !important;
+    }
+
+    .wesley1-pagina,
+    .wesley1-pagina .container,
+    .wesley1-app,
+    .wesley1-werkblad,
+    .wesley1-hoofdkolom,
+    .wesley1-podium {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: none !important;
+        width: auto !important;
+        background: none !important;
+    }
+
+    /* Kleuren en achtergronden van de kaart mee afdrukken */
+    .wesley1-kaart,
+    .wesley1-kaart * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .wesley1-kaart {
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .wesley1-kaart-binnen {
+        padding: 14mm 16mm 10mm;
+    }
+
+    .wesley1-kaart-titel {
+        font-size: 30pt;
+    }
+
+    .wesley1-kaart-naam {
+        font-size: 13pt;
+    }
+
+    .wesley1-kaart-omschrijving,
+    .wesley1-kaart-prijs {
+        font-size: 11pt;
+    }
+}
+
+/* Knoppen in formulieren: eigen breedte, niet uitgerekt, in het midden */
+.wesley1-velden > .wesley1-knop {
+    justify-self: center;
+}
+
+/* Knop in de kop van een paneel: rechts */
+.wesley1-paneel-kop .wesley1-knop {
+    justify-self: end;
+}
+
+.wesley1-bewerk-knoppen .wesley1-knop {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 680px) {
+    .wesley1-app .wesley1-knop {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .wesley1-velden > .wesley1-knop,
+    .wesley1-paneel-kop .wesley1-knop {
+        justify-self: stretch;
+    }
+
+    .wesley1-paneel-kop {
+        flex-wrap: wrap;
+    }
+
+    .wesley1-paneel-kop form {
+        width: 100%;
+    }
+
+    .wesley1-bewerk-knoppen {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 680px) {
+    /* Kopbalk op gsm: alles onder elkaar, over de volle breedte */
+    .wesley1-kop {
+        grid-template-columns: 1fr;
+    }
+
+    .wesley1-kop-acties {
+        width: 100%;
+    }
+}
+
+/* ======================================================================
+   Gangen: voorgerechten, hoofdgerechten, desserten
+   ====================================================================== */
+/* In het beheer: een titel per gang boven zijn eigen lijst */
+.wesley1-ganggroep + .wesley1-ganggroep {
+    margin-top: 22px;
+}
+
+.wesley1-gangtitel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px;
+    color: var(--wesley1-pine);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.wesley1-gangtelling {
+    display: grid;
+    place-items: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: var(--pine-100, #e7f0ed);
+    font-size: 0.72rem;
+    letter-spacing: 0;
+}
+
+/* Op de kaart: een sierlijke titel per gang */
+.wesley1-kaart-gang + .wesley1-kaart-gang {
+    margin-top: 26px;
+}
+
+.wesley1-kaart-gang {
+    break-inside: auto;
+}
+
+.wesley1-kaart-gangtitel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 14px;
+    color: var(--wesley1-groen);
+    font-family: inherit;
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-variant: small-caps;
+    letter-spacing: 0.14em;
+    text-align: center;
+}
+
+.wesley1-kaart-gangtitel::before,
+.wesley1-kaart-gangtitel::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid var(--wesley1-goud-licht);
+}
+
+@media print {
+    .wesley1-kaart-gangtitel {
+        font-size: 14pt;
+    }
+}
+
+/* Een dunne gouden scheidingslijn onder elk gerecht, op het scherm en in de afdruk */
+.wesley1-kaart-item {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--wesley1-goud-licht);
+}
+
+.wesley1-kaart-lijst {
+    gap: 12px;
+}
+
+/* Een gangtitel blijft altijd bij zijn eerste gerecht (nooit alleen onderaan een pagina) */
+.wesley1-kaart-gangtitel {
+    break-after: avoid;
+    page-break-after: avoid;
+}
+
+@media print {
+    .wesley1-kaart-item {
+        border-bottom-color: #d9bf72;
+    }
+}
+
+@media print {
+    /* Compacter op papier: meer gerechten per A4 */
+    .wesley1-kaart-binnen {
+        padding: 10mm 14mm 8mm;
+    }
+
+    .wesley1-kaart-kop {
+        margin-bottom: 14px;
+    }
+
+    .wesley1-kaart-titel {
+        font-size: 26pt;
+    }
+
+    .wesley1-kaart-lijst {
+        gap: 7px;
+    }
+
+    .wesley1-kaart-item {
+        padding-bottom: 7px;
+    }
+
+    .wesley1-kaart-naam {
+        font-size: 12pt;
+    }
+
+    .wesley1-kaart-omschrijving {
+        margin-top: 1px;
+        font-size: 10pt;
+    }
+
+    .wesley1-kaart-gang + .wesley1-kaart-gang {
+        margin-top: 16px;
+    }
+
+    .wesley1-kaart-gangtitel {
+        margin-bottom: 8px;
+        font-size: 13pt;
+    }
+
+    .wesley1-kaart-voet {
+        margin-top: 16px;
+    }
+}

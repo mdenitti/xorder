@@ -24,7 +24,7 @@ final class Migrator
     {
         // Schema files use CREATE TABLE IF NOT EXISTS, so re-running adds newer tables to existing installs.
         // Marker = de laatst toegevoegde tabel. Bestaat die, dan is het schema up-to-date.
-        if ($this->tableExists('login_attempts')) {
+        if ($this->tableExists('wesley2_reviews')) {
             return;
         }
 

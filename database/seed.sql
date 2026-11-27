@@ -19,6 +19,7 @@ DELETE FROM products;
 DELETE FROM password_resets;
 DELETE FROM login_attempts;
 DELETE FROM widget_events;
+DELETE FROM wesley2_reviews;
 DELETE FROM users;
 
 -- Gebruikers

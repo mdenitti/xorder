@@ -105,3 +105,20 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
     PRIMARY KEY (`id`),
     KEY `idx_login_attempts_lookup` (`action`, `key_hash`, `created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `wesley2_reviews` (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `user_id` INT UNSIGNED NOT NULL,
+    `reviewer_name` VARCHAR(120) NOT NULL,
+    `title` VARCHAR(160) NOT NULL DEFAULT '',
+    `rating` TINYINT UNSIGNED NOT NULL,
+    `comment` TEXT NOT NULL,
+    `is_demo` TINYINT(1) NOT NULL DEFAULT 0,
+    `created_at` DATETIME NOT NULL,
+    `updated_at` DATETIME NOT NULL,
+    `deleted_at` DATETIME NULL DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_wesley2_reviews_user_rating` (`user_id`, `deleted_at`, `rating`),
+    KEY `idx_wesley2_reviews_user_created` (`user_id`, `deleted_at`, `created_at`),
+    CONSTRAINT `fk_wesley2_reviews_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

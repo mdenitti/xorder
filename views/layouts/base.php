@@ -63,13 +63,16 @@ declare(strict_types=1);
                 <a class="nav-link <?= $currentPath === '/app/kitchen' ? 'is-active' : '' ?>" href="<?= $e($url('/app/kitchen')) ?>"><?= $e($t('nav.kitchen')) ?></a>
                 <a class="nav-link <?= $currentPath === '/app/products' ? 'is-active' : '' ?>" href="<?= $e($url('/app/products')) ?>"><?= $e($t('nav.products')) ?></a>
                 <a class="nav-link <?= $currentPath === '/app/settings' ? 'is-active' : '' ?>" href="<?= $e($url('/app/settings')) ?>"><?= $e($t('nav.settings')) ?></a>
+
                 <a class="nav-link" href="<?= $e($url('/jeroen.php')) ?>">Order Health Check</a>
                 <a class="nav-link" href="<?= $e($url('/wesley1.php')) ?>">Wesley1</a>
                 <a class="nav-link" href="<?= $e($url('/robin.php')) ?>">Robin</a>
                 <a class="nav-link" href="<?= $e($url('/wesley2.php')) ?>">Wesley2</a>
                 <a class="nav-link" href="<?= $e($url('/Lily.php')) ?>">Lily</a>
+                <a class="nav-link <?= $currentPath === '/joachim' ? 'is-active' : '' ?>" href="<?= $e($url('/joachim')) ?>"><?= $e($t('nav.newsletter')) ?></a>
         
- <?php else: ?>
+      <?php else: ?>
+
                 <a class="nav-link" href="<?= $e($url('/#voordelen')) ?>"><?= $e($t('nav.features')) ?></a>
                 <a class="nav-link" href="<?= $e($url('/#excel-backup')) ?>"><?= $e($t('nav.excel')) ?></a>
                 <a class="nav-link" href="<?= $e($url('/#waarom-gratis')) ?>"><?= $e($t('nav.why_free')) ?></a>

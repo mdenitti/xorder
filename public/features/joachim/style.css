@@ -600,12 +600,29 @@
 .joachim-recipient-actions {
     display: flex;
     flex: 0 0 auto;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-wrap: nowrap;
     justify-content: flex-end;
     gap: 7px 12px;
 }
 
-.joachim-recipient-actions form {
+.joachim-recipient-actions > a,
+.joachim-recipient-actions .joachim-text-button,
+.joachim-recipient-actions .joachim-delete {
+    display: inline-flex;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 0.82rem;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.joachim-recipient-actions > form {
+    display: flex;
+    height: 36px;
+    align-items: center;
     margin: 0;
 }
 
